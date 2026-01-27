@@ -82,12 +82,12 @@ const shapes = [
           </div>
 
           <div class="flex flex-wrap items-center gap-[30px] pt-6">
-            <NuxtLink to="/3" class="group relative overflow-hidden bg-primary-6-deep text-black font-jakarta font-bold text-[16px] px-[35px] py-[18px] rounded-full transition-all duration-300">
+            <NuxtLink to="/#" class="group relative overflow-hidden bg-primary-6-deep text-black font-jakarta font-bold text-[16px] px-[35px] py-[18px] rounded-full transition-all duration-300">
                <span class="relative z-10 text-white ">Get Start for Free</span>
                <div class="absolute inset-0 bg-[#FFDA54] translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
             </NuxtLink>
             
-            <NuxtLink to="/contact-us" class="flex items-center gap-2 text-white text-[16px] font-bold font-jakarta hover:text-primary-6 transition-all group">
+            <NuxtLink to="/#" class="flex items-center gap-2 text-white text-[16px] font-bold font-jakarta hover:text-primary-6 transition-all group">
               Let's talk
               <span class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-primary-6/20 transition-colors">
                 <UIcon name="i-heroicons-chevron-right-20-solid" class="w-5 h-5 group-hover:translate-x-1 transition-transform" />

@@ -28,25 +28,11 @@ export default defineNuxtConfig({
         wght: [400, 500, 700],
       },
     },
-    display: "swap", // Use 'swap' to ensure text is visible during font loading
+    display: "swap", 
     preload: true,
   },
   colorMode: {
     preference: "dark",
-  },
-  tailwindcss: {
-    config: {
-      theme: {
-        extend: {
-          fontFamily: {
-            jakarta: ["Plus Jakarta Sans", "sans-serif"],
-            sans: ["Rethink Sans", "sans-serif"],
-            serif: ["Allan", "serif"],
-            dm: ["DM Sans", "sans-serif"],
-          },
-        },
-      },
-    },
   },
   app: {
     head: {
@@ -55,7 +41,7 @@ export default defineNuxtConfig({
         {
           rel: "preconnect",
           href: "https://fonts.gstatic.com",
-          crossorigin: true,
+          crossorigin: "anonymous",
         },
       ],
     },

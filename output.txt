@@ -1,23 +1,17 @@
-Here's a suggested commit message, branch name, and PR title based on the changes made:
+I've identified the "No match found for location" warnings as the core issue for your deployment problems. These warnings indicate that your NuxtLink components were pointing to routes that didn't have corresponding page files defined.
 
-**Branch Name Suggestion:**
-`perf/optimize-lcp-inp`
+I have created placeholder page files for the missing routes:
+-   `app/pages/contact-us.vue`
+-   `app/pages/3.vue`
 
-**Pull Request (PR) Title Suggestion:**
-`feat(performance): Optimize font loading and improve INP`
+These new files should allow the Vue Router to find matches for `/contact-us` and `/3`, preventing the warnings from appearing. This might also resolve any rendering issues you were experiencing if the router warnings were causing the application to behave unexpectedly.
 
-**Commit Message Suggestion:**
-```
-feat(performance): Optimize font loading and improve INP
+**Next Steps to Verify the Fix:**
+1.  **Rebuild your project locally.**
+2.  **Redeploy your application to Vercel.**
+3.  **Check your Vercel deployment preview.**
+4.  **Open your browser's developer console** and confirm that the "[Vue Router warn]: No match found for location with path..." messages are no longer present.
 
-This commit addresses performance bottlenecks related to font loading and interaction latency (INP).
+If the page is still blank or broken, or if new errors appear, please provide those details, including any Vercel build/runtime logs.
 
-Changes include:
-- Integrated `@nuxtjs/google-fonts` to efficiently load 'Plus Jakarta Sans', 'Allan', 'Rethink Sans', and 'DM Sans' with optimal weights and `display: swap`.
-- Eliminated redundant Google Fonts `@import` statements and hardcoded `<link>` tags across CSS files and `nuxt.config.ts` to prevent duplicate requests.
-- Configured Tailwind CSS in `nuxt.config.ts` to map `font-jakarta`, `font-sans`, `font-serif`, and `font-dm` classes to their respective font families.
-- Simplified the `fade-up` CSS transition easing in `app/components/Finance/HeroSection.vue` to `ease-out`.
-- Disabled the continuous `loading-bar` animation in `app/assets/css/main.css` to reduce persistent rendering overhead.
-
-These optimizations aim to enhance both the Largest Contentful Paint (LCP) and Interaction to Next Paint (INP) metrics for a smoother user experience.
-```
+I'm ready for your next instruction!
