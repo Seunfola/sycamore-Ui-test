@@ -1,0 +1,23 @@
+{
+  "name": "sycamore-test",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "dependencies": {
+    "@nuxt/ui": "^4.4.0",
+    "@vueuse/motion": "^3.0.3",
+    "autoprefixer": "^10.4.23",
+    "motion": "^12.29.2",
+    "nuxt": "^4.3.0",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^4.1.18",
+    "vue": "^3.5.27",
+    "vue-router": "^4.6.4"
+  }
+}
