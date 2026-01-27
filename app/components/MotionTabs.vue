@@ -89,10 +89,7 @@ const hoverStyle = computed(() => {
 
 <style scoped>
 
-.font-jakarta {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  -webkit-font-smoothing: antialiased;
-}
+
 
 .router-link-active {
   color: white !important;

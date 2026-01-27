@@ -34,7 +34,7 @@ const features = [
           class="p-[50px_40px] rounded-[35px] bg-[#F1F1F1] transition-all duration-500 hover:shadow-xl hover:-translate-y-2 group"
         >
           <div class="w-16 h-16 mb-[31px]">
-            <img :src="feature.icon" alt="icon" class="w-full h-full object-contain" />
+            <img :src="feature.icon" :alt="`${feature.title} icon`" class="w-full h-full object-contain" />
           </div>
           <h5 class="text-[22px] font-bold mb-[20px] text-[#111111] font-jakarta leading-tight">{{ feature.title }}</h5>
           <p class="text-[#444444] text-[16px] leading-relaxed mb-[60px] font-dm opacity-80">{{ feature.description }}</p>
@@ -62,9 +62,7 @@ const features = [
 </template>
 
 <style scoped>
-.font-jakarta {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-}
+
 .font-dm {
   font-family: 'DM Sans', sans-serif;
 }

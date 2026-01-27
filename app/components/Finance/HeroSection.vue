@@ -1,7 +1,7 @@
 <script setup lang="ts">
 const words = ['Easier', 'Accountable', 'Unbeatable']
 const currentIndex = ref(0)
-const isPlaying = ref(true)
+const isPlaying = ref(false)
 const videoRef = ref<HTMLVideoElement | null>(null)
 let interval: any
 
@@ -42,18 +42,19 @@ const shapes = [
 
 <template>
   <section class="hero-section6 relative bg-hero-navy text-white overflow-hidden pt-[247px] pb-[212px] flex items-center min-h-[900px]">
+    
     <div class="absolute inset-0 z-0 pointer-events-none select-none">
-      <img v-for="(shape, i) in shapes" :key="i" :src="shape" 
-           :class="`absolute banner-vector banner-vector${i+1}`" 
-           :style="{ 
+       <img v-for="(shape, i) in shapes" :key="i" :src="shape" loading="lazy" alt="decorative shape"
+         :class="`absolute banner-vector banner-vector${i+1}`" 
+         :style="{ 
              right: i === 0 ? '30%' : i === 3 ? '40%' : 'auto',
              left: i === 1 ? '44%' : i === 2 ? '45%' : i === 4 ? '25%' : i === 5 ? '25%' : 'auto',
              top: i === 0 ? '20%' : i === 1 ? '35%' : i === 3 ? '56%' : i === 5 ? '18%' : 'auto',
              bottom: i === 2 ? '18%' : i === 4 ? '13%' : 'auto'
            }" />
       
-      <img :src="line1" class="absolute top-[-32px] right-[22.2%] h-[40%] z-[3] " />
-      <img :src="line2" class="absolute bottom-[3px] right-[31%] h-[70%] z-0" />
+      <img :src="line1" loading="lazy" alt="decorative line" class="absolute top-[-32px] right-[22.2%] h-[40%]" />
+      <img :src="line2" loading="lazy" alt="decorative line" class="absolute bottom-[3px] right-[31%] h-[70%]" />
     </div>
 
     <div class="container mx-auto px-4 max-w-[1200px] relative z-10">
@@ -81,7 +82,7 @@ const shapes = [
           </div>
 
           <div class="flex flex-wrap items-center gap-[30px] pt-6">
-            <NuxtLink to="/sign-up" class="group relative overflow-hidden bg-primary-6-deep text-black font-jakarta font-bold text-[16px] px-[35px] py-[18px] rounded-full transition-all duration-300">
+            <NuxtLink to="/3" class="group relative overflow-hidden bg-primary-6-deep text-black font-jakarta font-bold text-[16px] px-[35px] py-[18px] rounded-full transition-all duration-300">
                <span class="relative z-10 text-white ">Get Start for Free</span>
                <div class="absolute inset-0 bg-[#FFDA54] translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
             </NuxtLink>
@@ -104,10 +105,11 @@ const shapes = [
           <div class="relative rounded-[40px] overflow-hidden shadow-2xl aspect-video bg-gray-950 group">
             <video 
               ref="videoRef"
-              autoplay 
+              preload="none"
               loop 
               muted 
               playsinline 
+              poster="/assets/hero-finance.png"
               class="w-full h-full object-cover"
             >
                <source src="/assets/hero-video.mp4" type="video/mp4" />
@@ -130,7 +132,7 @@ const shapes = [
 <style scoped>
 .fade-up-enter-active,
 .fade-up-leave-active {
-  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  transition: all 0.6s ease-out;
 }
 
 .fade-up-enter-from {

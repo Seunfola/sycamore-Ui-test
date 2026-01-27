@@ -1,0 +1,23 @@
+Here's a suggested commit message, branch name, and PR title based on the changes made:
+
+**Branch Name Suggestion:**
+`perf/optimize-lcp-inp`
+
+**Pull Request (PR) Title Suggestion:**
+`feat(performance): Optimize font loading and improve INP`
+
+**Commit Message Suggestion:**
+```
+feat(performance): Optimize font loading and improve INP
+
+This commit addresses performance bottlenecks related to font loading and interaction latency (INP).
+
+Changes include:
+- Integrated `@nuxtjs/google-fonts` to efficiently load 'Plus Jakarta Sans', 'Allan', 'Rethink Sans', and 'DM Sans' with optimal weights and `display: swap`.
+- Eliminated redundant Google Fonts `@import` statements and hardcoded `<link>` tags across CSS files and `nuxt.config.ts` to prevent duplicate requests.
+- Configured Tailwind CSS in `nuxt.config.ts` to map `font-jakarta`, `font-sans`, `font-serif`, and `font-dm` classes to their respective font families.
+- Simplified the `fade-up` CSS transition easing in `app/components/Finance/HeroSection.vue` to `ease-out`.
+- Disabled the continuous `loading-bar` animation in `app/assets/css/main.css` to reduce persistent rendering overhead.
+
+These optimizations aim to enhance both the Largest Contentful Paint (LCP) and Interaction to Next Paint (INP) metrics for a smoother user experience.
+```

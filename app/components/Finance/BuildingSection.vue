@@ -31,7 +31,7 @@ watch(y, (newY) => {
             <h2 class="text-white text-4xl lg:text-5xl font-bold mb-[34px] leading-tight font-jakarta">
               We are building <br /> financial foundations
             </h2>
-            <NuxtLink to="/contact-us" class="inline-flex items-center gap-2 bg-[#FFDA54] hover:bg-white text-black font-bold px-8 py-4 rounded-full transition-all duration-300">
+            <NuxtLink to="/#" class="inline-flex items-center gap-2 bg-[#FFDA54] hover:bg-white text-black font-bold px-8 py-4 rounded-full transition-all duration-300">
               Let's Talk
               <UIcon name="i-heroicons-arrow-long-right" class="w-5 h-5" />
             </NuxtLink>

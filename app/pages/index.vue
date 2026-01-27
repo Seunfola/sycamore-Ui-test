@@ -43,7 +43,7 @@ useHead({
             </svg>
           </button>
 
-          <NuxtLink to="/login" class="hidden md:block text-[14px] font-bold text-white/70 hover:text-white transition-colors font-jakarta">
+          <NuxtLink to="/#" class="hidden md:block text-[14px] font-bold text-white/70 hover:text-white transition-colors font-jakarta">
             Sign in
           </NuxtLink>
 
@@ -67,11 +67,9 @@ useHead({
 </template>
 
 <style scoped>
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&display=swap');
 
-.font-jakarta {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-}
+
+
 
 /* Consistent Glassmorphism for both states */
 .glass-effect {

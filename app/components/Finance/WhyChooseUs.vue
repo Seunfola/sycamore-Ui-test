@@ -86,30 +86,39 @@ onUnmounted(() => {
           
           <div class="w-1/3 mt-20">
             <div class="rounded-[14px] overflow-hidden aspect-[1/1.8] shadow-[0_40px_100px_-20px_rgba(0,0,0,0.1)] ring-1 ring-black/5 hover:scale-105 transition-transform duration-700">
-              <img 
-                src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?q=80&w=1974&auto=format&fit=crop" 
-                class="w-full h-full object-cover" 
-                alt="Project Lead"
+              <NuxtImg
+                src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?q=80&w=1974&auto=format&fit=crop"
+                class="w-full h-full object-cover"
+                alt="Professional project lead managing team tasks and deliverables"
+                loading="lazy"
+                width="400"
+                height="720"
               />
             </div>
           </div>
 
           <div class="w-1/3">
             <div class="rounded-[14px] overflow-hidden aspect-[1/2.2] shadow-[0_50px_120px_-30px_rgba(0,0,0,0.15)] ring-1 ring-black/5 hover:scale-105 transition-transform duration-700">
-              <img 
-                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop" 
-                class="w-full h-full object-cover" 
-                alt="Team Collaboration"
+              <NuxtImg
+                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop"
+                class="w-full h-full object-cover"
+                alt="Team members collaborating on project work in modern office"
+                loading="lazy"
+                width="400"
+                height="880"
               />
             </div>
           </div>
 
           <div class="w-1/3 mt-20">
             <div class="rounded-[14px] overflow-hidden aspect-[1/1.8] shadow-[0_40px_100px_-20px_rgba(0,0,0,0.1)] ring-1 ring-black/5 hover:scale-105 transition-transform duration-700">
-              <img 
-                src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=1974&auto=format&fit=crop" 
-                class="w-full h-full object-cover" 
-                alt="Client Manager"
+              <NuxtImg
+                src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=1974&auto=format&fit=crop"
+                class="w-full h-full object-cover"
+                alt="Client manager discussing project requirements with team"
+                loading="lazy"
+                width="400"
+                height="720"
               />
             </div>
           </div>
@@ -120,9 +129,7 @@ onUnmounted(() => {
 </template>
 
 <style scoped>
-.font-jakarta {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-}
+
 .font-dm {
   font-family: 'DM Sans', sans-serif;
 }

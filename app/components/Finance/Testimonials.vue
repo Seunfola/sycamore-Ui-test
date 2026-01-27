@@ -130,5 +130,5 @@ onUnmounted(() => {
 .img-swap-enter-from { opacity: 0; filter: blur(15px) scale(1.1); }
 .img-swap-leave-to { opacity: 0; filter: blur(15px) scale(0.9); }
 
-.font-jakarta { font-family: 'Plus Jakarta Sans', sans-serif; }
+
 </style>

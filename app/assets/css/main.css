@@ -1,12 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Allan:ital,wght@1,400;1,700&family=Rethink+Sans:ital,wght@0,400..800;1,400..800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap');
-
 @import "tailwindcss";
 @import "@nuxt/ui";
 
 @theme {
   --font-sans: 'Rethink Sans', sans-serif;
   --font-serif: 'Allan', serif;
-  --font-jakarta: 'Plus Jakarta Sans', sans-serif;
+
   --font-dm: 'DM Sans', sans-serif;
   
   --color-primary-50: oklch(0.985 0.001 106.423);
@@ -37,7 +35,6 @@
   }
   h1, h2, h3, h4, h5, h6 {
     color: #111111; /* title color */
-    font-family: 'Plus Jakarta Sans', sans-serif;
   }
 }
 
@@ -69,7 +66,6 @@
   background: #B2EDA1;
   border-radius: 0;
   transform-origin: left;
-  animation: loading-bar 3s infinite ease-in-out;
 }
 
 .banner-vector {
