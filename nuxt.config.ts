@@ -5,25 +5,30 @@ export default defineNuxtConfig({
   future: {
     compatibilityVersion: 4,
   },
-  modules: ["@nuxt/ui", "@nuxt/image", "@vueuse/motion/nuxt", "@nuxtjs/google-fonts"],
+  modules: [
+    "@nuxt/ui",
+    "@nuxt/image",
+    "@vueuse/motion/nuxt",
+    "@nuxtjs/google-fonts",
+  ],
   css: ["~/assets/css/main.css"],
   googleFonts: {
     families: {
-      'Plus Jakarta Sans': {
+      "Plus Jakarta Sans": {
         wght: [400, 500, 600, 700, 800],
       },
-      'Allan': {
+      Allan: {
         ital: [400, 700],
       },
-      'Rethink Sans': {
+      "Rethink Sans": {
         wght: [400, 800],
         ital: [400, 800],
       },
-      'DM Sans': {
+      "DM Sans": {
         wght: [400, 500, 700],
-      }
+      },
     },
-    display: 'swap', // Use 'swap' to ensure text is visible during font loading
+    display: "swap", // Use 'swap' to ensure text is visible during font loading
     preload: true,
   },
   colorMode: {
@@ -34,14 +39,14 @@ export default defineNuxtConfig({
       theme: {
         extend: {
           fontFamily: {
-            jakarta: ['Plus Jakarta Sans', 'sans-serif'],
-            sans: ['Rethink Sans', 'sans-serif'],
-            serif: ['Allan', 'serif'],
-            dm: ['DM Sans', 'sans-serif'],
-          }
-        }
-      }
-    }
+            jakarta: ["Plus Jakarta Sans", "sans-serif"],
+            sans: ["Rethink Sans", "sans-serif"],
+            serif: ["Allan", "serif"],
+            dm: ["DM Sans", "sans-serif"],
+          },
+        },
+      },
+    },
   },
   app: {
     head: {
@@ -52,13 +57,21 @@ export default defineNuxtConfig({
           href: "https://fonts.gstatic.com",
           crossorigin: true,
         },
-
       ],
     },
   },
   nitro: {
+    prerender: {
+      crawlLinks: true,
+      routes: ["/"],
+      ignore: ["/admin"],
+    },
     rollupConfig: {
       external: ["@iconify/utils", "@vue/shared"],
     },
+    output: {
+      publicDir: ".output/public",
+    },
   },
+  ssr: true,
 });

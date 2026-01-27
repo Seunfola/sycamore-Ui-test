@@ -147,23 +147,54 @@ npm run build
 
 ## 🚀 Deployment
 
-### Vercel (Recommended)
-1. Connect your GitHub repository
-2. Configure build settings:
-   - Build Command: `npm run build`
-   - Output Directory: `.output/public`
-3. Add environment variables if needed
+### ⚡ Vercel (Easiest - Recommended)
 
-### Netlify
+**Auto-Deploy in 2 Steps**:
+
+1. **Connect GitHub to Vercel**:
+   ```bash
+   git push origin main
+   ```
+
+2. **Vercel auto-detects Nuxt and deploys** ✨
+
+**That's it!** Your site is live.
+
+> 📖 See [VERCEL_SETUP.md](./VERCEL_SETUP.md) for detailed Vercel guide with troubleshooting
+
+**If you see JavaScript instead of HTML**:
+- Check `vercel.json` exists in repo (it does ✓)
+- Verify `nuxt.config.ts` has `ssr: true` (it does ✓)
+- Redeploy from Vercel dashboard
+
+### Alternative: Netlify
 1. Connect repository
-2. Set build command: `npm run build`
-3. Set publish directory: `.output/public`
+2. Build command: `npm run build`
+3. Publish directory: `.output/public`
+4. Deploy site
 
-### Manual Deployment
+### Manual Node.js Server Deployment
 ```bash
-npm run generate
-# Deploy the .output/public directory to your hosting provider
+# Build the project
+npm run build
+
+# Deploy .output folder to your server
+# Then run with Node
+node .output/server/index.mjs
 ```
+
+### Static Hosting (GitHub Pages, Netlify Static, etc.)
+```bash
+# Generate static site
+npm run generate
+
+# Deploy the dist/ folder
+```
+
+**Important**: Ensure your hosting platform:
+- Serves `index.html` for all routes (SPA mode)
+- OR runs the Node.js server (SSR mode - recommended)
+- Sets proper cache headers (no cache for HTML, long cache for JS/CSS)
 
 ## 📊 Assessment Criteria & Optimization
 
