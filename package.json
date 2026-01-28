@@ -33,5 +33,6 @@
   },
   "engines": {
     "node": ">=20.0.0"
-  }
+  },
+  "_rebuild": "2026-01-28-force-clean-build"
 }
