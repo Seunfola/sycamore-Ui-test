@@ -52,7 +52,7 @@ export default defineNuxtConfig({
       ignore: ["/a"],
     },
     rollupConfig: {
-      external: ["@iconify/utils", "@vue/shared"],
+      external: ["@vue/shared"],
     },
     output: {
       publicDir: ".output/public",
