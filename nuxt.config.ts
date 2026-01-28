@@ -1,20 +1,20 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
-  
+
   modules: [
     "@nuxt/ui",
     "@nuxt/image",
     "@vueuse/motion/nuxt",
     "@nuxtjs/google-fonts",
-    "@nuxt/fonts"
+    "@nuxt/fonts",
   ],
-  
+
   css: ["~/assets/css/main.css"],
-  
+
   googleFonts: {
     families: {
       "Plus Jakarta Sans": [400, 500, 600, 700, 800],
-      "Allan": {
+      Allan: {
         ital: [400, 700],
       },
       "Rethink Sans": {
@@ -23,14 +23,14 @@ export default defineNuxtConfig({
       },
       "DM Sans": [400, 500, 700],
     },
-    display: "swap", 
+    display: "swap",
     preload: true,
   },
-  
+
   colorMode: {
     preference: "dark",
   },
-  
+
   app: {
     head: {
       link: [
@@ -43,28 +43,28 @@ export default defineNuxtConfig({
       ],
     },
   },
-  
+
   nitro: {
-    preset: 'vercel',
-    
+    preset: "vercel",
+
     vercel: {
       functions: {
         maxDuration: 30,
-        memory: 3008
-      }
-    }
+        memory: 3008,
+      },
+    },
   },
-  
-  compatibilityDate: '2024-11-07',
-  
+
+  compatibilityDate: "2024-11-07",
+
   experimental: {
     componentIslands: true,
-    headNext: true
+    headNext: false,
   },
-  
+
   image: {
-    provider: 'ipx',
+    provider: "ipx",
     quality: 80,
-    format: ['webp', 'avif']
-  }
-})
+    format: ["webp", "avif"],
+  },
+});
