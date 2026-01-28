@@ -1,18 +1,3 @@
-<script setup lang="ts">
-import { useWindowScroll } from '@vueuse/core'
-import { computed } from 'vue'
-
-const { y } = useWindowScroll()
-const isVisible = computed(() => y.value > 500)
-
-const scrollToTop = () => {
-  window.scrollTo({
-    top: 0,
-    behavior: 'smooth'
-  })
-}
-</script>
-
 <template>
   <Transition
     enter-active-class="transition duration-500 ease-out"
@@ -42,3 +27,18 @@ const scrollToTop = () => {
     </button>
   </Transition>
 </template>
+
+<script setup lang="ts">
+import { useWindowScroll } from '@vueuse/nuxt'
+import { computed } from 'vue'
+
+const y = useWindowScroll().y
+const isVisible = computed(() => y.value > 500)
+
+const scrollToTop = () => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  })
+}
+</script>c

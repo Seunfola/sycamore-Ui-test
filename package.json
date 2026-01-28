@@ -10,8 +10,11 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@nuxt/fonts": "^0.13.0",
     "@nuxt/ui": "^4.4.0",
+    "@vueuse/core": "^14.1.0",
     "@vueuse/motion": "^3.0.3",
+    "@vueuse/nuxt": "^14.1.0",
     "autoprefixer": "^10.4.23",
     "motion": "^12.29.2",
     "nuxt": "^4.3.0",
@@ -19,5 +22,12 @@
     "tailwindcss": "^4.1.18",
     "vue": "^3.5.27",
     "vue-router": "^4.6.4"
+  },
+  "devDependencies": {
+    "@nuxt/image": "^2.0.0",
+    "@nuxtjs/google-fonts": "^3.2.0"
+  },
+  "engines": {
+    "node": ">=22.x"
   }
 }

@@ -1,45 +1,4 @@
-<script setup lang="ts">
-const footerLinks = [
-  {
-    title: 'Products',
-    icon: '🔥',
-    items: ['HR Management', 'Invoice System', 'Email Marketing', 'Web Services', 'Digital Marketing']
-  },
-  {
-    title: 'Why choose',
-    icon: '☀️',
-    items: ['Customers', 'Why Staco ?', 'Book a demo']
-  },
-  {
-    title: 'Resources',
-    icon: '💠',
-    items: ['Latest Blog', 'Supports', 'Knowledgebase', 'FAQs']
-  },
-  {
-    title: 'Company',
-    icon: '💎',
-    items: ['About', 'What we do', 'Contact us', 'Careers']
-  }
-]
 
-const socialIcons = [
-  { name: 'fab fa-facebook-f', link: '#' },
-  { name: 'fab fa-x', link: '#' }, // Updated to 'x' icon per screenshot
-  { name: 'fab fa-linkedin-in', link: '#' },
-  { name: 'fab fa-instagram', link: '#' },
-  { name: 'fab fa-youtube', link: '#' }
-]
-
-useHead({
-  link: [
-    { rel: 'stylesheet', href: 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css' }
-  ]
-})
-
-const scrollToTop = () => {
-  window.scrollTo({ top: 0, behavior: 'smooth' })
-}
-</script>
 
 <template>
   <footer class="bg-white font-jakarta pt-10 relative">
@@ -119,9 +78,52 @@ const scrollToTop = () => {
 </template>
 
 <style scoped>
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+
 
 .font-jakarta {
   font-family: 'Plus Jakarta Sans', sans-serif;
 }
 </style>
+
+<script setup lang="ts">
+const footerLinks = [
+  {
+    title: 'Products',
+    icon: '🔥',
+    items: ['HR Management', 'Invoice System', 'Email Marketing', 'Web Services', 'Digital Marketing']
+  },
+  {
+    title: 'Why choose',
+    icon: '☀️',
+    items: ['Customers', 'Why Staco ?', 'Book a demo']
+  },
+  {
+    title: 'Resources',
+    icon: '💠',
+    items: ['Latest Blog', 'Supports', 'Knowledgebase', 'FAQs']
+  },
+  {
+    title: 'Company',
+    icon: '💎',
+    items: ['About', 'What we do', 'Contact us', 'Careers']
+  }
+]
+
+const socialIcons = [
+  { name: 'fab fa-facebook-f', link: '#' },
+  { name: 'fab fa-x', link: '#' },
+  { name: 'fab fa-linkedin-in', link: '#' },
+  { name: 'fab fa-instagram', link: '#' },
+  { name: 'fab fa-youtube', link: '#' }
+]
+
+useHead({
+  link: [
+    { rel: 'stylesheet', href: 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css' }
+  ]
+})
+
+const scrollToTop = () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' })
+}
+</script>

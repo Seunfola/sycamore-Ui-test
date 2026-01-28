@@ -1,15 +1,3 @@
-<script setup lang="ts">
-import { useWindowScroll } from '@vueuse/core'
-import { computed } from 'vue'
-
-const { y } = useWindowScroll()
-const isSticky = computed(() => y.value > 30)
-
-useHead({
-  link: [ { rel: 'icon', type: 'image/svg+xml', href: '/assets/finance-logo.svg' } ]
-})
-</script>
-
 <template>
   <div class="min-h-screen bg-[#06090F] text-white font-sans selection:bg-emerald-500/30 overflow-x-hidden pt-16">
 
@@ -43,7 +31,7 @@ useHead({
             </svg>
           </button>
 
-          <NuxtLink to="/login" class="hidden md:block text-[14px] font-bold text-white/70 hover:text-white transition-colors font-jakarta">
+          <NuxtLink to="/#" class="hidden md:block text-[14px] font-bold text-white/70 hover:text-white transition-colors font-jakarta">
             Sign in
           </NuxtLink>
 
@@ -67,13 +55,10 @@ useHead({
 </template>
 
 <style scoped>
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&display=swap');
 
-.font-jakarta {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-}
 
-/* Consistent Glassmorphism for both states */
+
+
 .glass-effect {
   background: rgba(15, 20, 28, 0.6) !important;
   backdrop-filter: blur(12px) saturate(150%) !important;
@@ -85,8 +70,19 @@ useHead({
 }
 
 nav {
-  /* Hardware acceleration for smooth height/width morphing */
   will-change: width, padding, border-radius;
   transform: translateZ(0);
 }
 </style>
+
+<script setup lang="ts">
+import { useWindowScroll } from '@vueuse/core'
+import { computed, ref } from 'vue'
+
+const y = process.client ? useWindowScroll().y : ref(0)
+const isSticky = computed(() => y.value > 30)
+
+useHead({
+  link: [ { rel: 'icon', type: 'image/svg+xml', href: '/assets/finance-logo.svg' } ]
+})
+</script>

@@ -1,48 +1,3 @@
-<script setup lang="ts">
-import { ref, computed } from 'vue'
-
-const items = [
-  { label: 'Home', to: '/', hasDropdown: true },
-  { label: 'Pages', to: '#', hasDropdown: true },
-  { label: 'Services', to: '#' },
-  { label: 'Blogs', to: '#' },
-  { label: 'Contact Us', to: '#' }
-]
-
-const props = defineProps<{
-  initialIndex?: number
-}>()
-
-const activeIndex = ref(props.initialIndex ?? 0)
-const hoverIndex = ref<number | null>(null)
-const itemRefs = ref<HTMLElement[]>([])
-
-const setItemRef = (el: any, index: number) => {
-  if (el) itemRefs.value[index] = (el.$el || el)
-}
-
-const activeStyle = computed(() => {
-  const el = itemRefs.value[activeIndex.value]
-  if (!el) return { opacity: 0 }
-  return {
-    width: `${el.offsetWidth}px`,
-    left: `${el.offsetLeft}px`,
-    opacity: 1
-  }
-})
-
-const hoverStyle = computed(() => {
-  if (hoverIndex.value === null || hoverIndex.value === activeIndex.value) return { opacity: 0 }
-  const el = itemRefs.value[hoverIndex.value]
-  if (!el) return { opacity: 0 }
-  return {
-    width: `${el.offsetWidth}px`,
-    left: `${el.offsetLeft}px`,
-    opacity: 1
-  }
-})
-</script>
-
 <template>
   <div class="flex items-center">
     <nav 
@@ -89,10 +44,7 @@ const hoverStyle = computed(() => {
 
 <style scoped>
 
-.font-jakarta {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  -webkit-font-smoothing: antialiased;
-}
+
 
 .router-link-active {
   color: white !important;
@@ -102,3 +54,48 @@ nav > div {
   pointer-events: none;
 }
 </style>
+
+<script setup lang="ts">
+import { ref, computed } from 'vue'
+
+const items = [
+  { label: 'Home', to: '/', hasDropdown: true },
+  { label: 'Pages', to: '#', hasDropdown: true },
+  { label: 'Services', to: '#' },
+  { label: 'Blogs', to: '#' },
+  { label: 'Contact Us', to: '#' }
+]
+
+const props = defineProps<{
+  initialIndex?: number
+}>()
+
+const activeIndex = ref(props.initialIndex ?? 0)
+const hoverIndex = ref<number | null>(null)
+const itemRefs = ref<HTMLElement[]>([])
+
+const setItemRef = (el: any, index: number) => {
+  if (el) itemRefs.value[index] = (el.$el || el)
+}
+
+const activeStyle = computed(() => {
+  const el = itemRefs.value[activeIndex.value]
+  if (!el) return { opacity: 0 }
+  return {
+    width: `${el.offsetWidth}px`,
+    left: `${el.offsetLeft}px`,
+    opacity: 1
+  }
+})
+
+const hoverStyle = computed(() => {
+  if (hoverIndex.value === null || hoverIndex.value === activeIndex.value) return { opacity: 0 }
+  const el = itemRefs.value[hoverIndex.value]
+  if (!el) return { opacity: 0 }
+  return {
+    width: `${el.offsetWidth}px`,
+    left: `${el.offsetLeft}px`,
+    opacity: 1
+  }
+})
+</script>
