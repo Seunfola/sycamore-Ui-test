@@ -35,7 +35,6 @@ const _sfc_main$9 = /* @__PURE__ */ defineComponent({
     initialIndex: {}
   },
   setup(__props) {
-    var _a;
     const items = [
       { label: "Home", to: "/", hasDropdown: true },
       { label: "Pages", to: "#", hasDropdown: true },
@@ -44,7 +43,7 @@ const _sfc_main$9 = /* @__PURE__ */ defineComponent({
       { label: "Contact Us", to: "#" }
     ];
     const props = __props;
-    const activeIndex = ref((_a = props.initialIndex) != null ? _a : 0);
+    const activeIndex = ref(props.initialIndex ?? 0);
     const hoverIndex = ref(null);
     const itemRefs = ref([]);
     const setItemRef = (el, index2) => {
@@ -488,7 +487,6 @@ function createOperationsGenerator(config = {}) {
     map[valueKey] = typeof value === "object" ? createMapper(value) : value;
   }
   return (modifiers) => {
-    var _a;
     const operations = [];
     for (const _key in modifiers) {
       const key = _key;
@@ -499,7 +497,7 @@ function createOperationsGenerator(config = {}) {
       operations.push([keyMap ? keyMap(key) : key, value]);
     }
     if (formatter) {
-      return operations.map((entry) => formatter(...entry)).join((_a = config.joinWith) != null ? _a : "&");
+      return operations.map((entry) => formatter(...entry)).join(config.joinWith ?? "&");
     }
     return new URLSearchParams(operations).toString();
   };
@@ -576,7 +574,6 @@ async function getMeta(ctx, input, options) {
   }
 }
 function resolveImage(ctx, input, options) {
-  var _a, _b;
   if (input && typeof input !== "string") {
     throw new TypeError(`input must be a string (received ${typeof input}: ${JSON.stringify(input)})`);
   }
@@ -612,12 +609,12 @@ function resolveImage(ctx, input, options) {
     ..._options,
     modifiers: {
       ..._options.modifiers,
-      width: ((_a = _options.modifiers) == null ? void 0 : _a.width) ? parseSize(_options.modifiers.width) : void 0,
-      height: ((_b = _options.modifiers) == null ? void 0 : _b.height) ? parseSize(_options.modifiers.height) : void 0
+      width: _options.modifiers?.width ? parseSize(_options.modifiers.width) : void 0,
+      height: _options.modifiers?.height ? parseSize(_options.modifiers.height) : void 0
     }
   };
   const image = provider.getImage(input, resolvedOptions, ctx);
-  image.format || (image.format = resolvedOptions.modifiers.format || "");
+  image.format ||= resolvedOptions.modifiers.format || "";
   return image;
 }
 function getProvider(ctx, name) {
@@ -637,13 +634,12 @@ function getPreset(ctx, name) {
   return ctx.options.presets[name];
 }
 function getSizes(ctx, input, opts) {
-  var _a, _b, _c, _d, _e;
   const preset = getPreset(ctx, opts.preset);
   const merged = defu(opts, preset);
-  const width = parseSize((_a = merged.modifiers) == null ? void 0 : _a.width);
-  const height = parseSize((_b = merged.modifiers) == null ? void 0 : _b.height);
+  const width = parseSize(merged.modifiers?.width);
+  const height = parseSize(merged.modifiers?.height);
   const sizes = merged.sizes ? parseSizes(merged.sizes) : {};
-  const _densities = (_c = merged.densities) == null ? void 0 : _c.trim();
+  const _densities = merged.densities?.trim();
   const densities = _densities ? parseDensities(_densities) : ctx.options.densities;
   checkDensities(densities);
   const hwRatio = width && height ? height / width : 0;
@@ -676,8 +672,8 @@ function getSizes(ctx, input, opts) {
         variant = {
           size: "",
           screenMaxWidth: 0,
-          _cWidth: (_d = opts.modifiers) == null ? void 0 : _d.width,
-          _cHeight: (_e = opts.modifiers) == null ? void 0 : _e.height
+          _cWidth: opts.modifiers?.width,
+          _cHeight: opts.modifiers?.height
         };
       }
       srcsetVariants.push({
@@ -694,7 +690,7 @@ function getSizes(ctx, input, opts) {
   return {
     sizes: sizesVal,
     srcset: srcsetVal,
-    src: defaultVariant == null ? void 0 : defaultVariant.src
+    src: defaultVariant?.src
   };
 }
 function getSizesVariant(key, size, height, hwRatio, ctx) {
@@ -733,7 +729,6 @@ function getVariantSrc(ctx, input, opts, variant, density) {
   );
 }
 function finaliseSizeVariants(sizeVariants) {
-  var _a;
   sizeVariants.sort((v1, v2) => v1.screenMaxWidth - v2.screenMaxWidth);
   let previousMedia = null;
   for (let i = sizeVariants.length - 1; i >= 0; i--) {
@@ -744,7 +739,7 @@ function finaliseSizeVariants(sizeVariants) {
     previousMedia = sizeVariant.media;
   }
   for (let i = 0; i < sizeVariants.length; i++) {
-    sizeVariants[i].media = ((_a = sizeVariants[i + 1]) == null ? void 0 : _a.media) || "";
+    sizeVariants[i].media = sizeVariants[i + 1]?.media || "";
   }
 }
 function finaliseSrcsetVariants(srcsetVariants) {
@@ -829,12 +824,11 @@ const imageOptions = {
   }
 };
 const useImage = (event) => {
-  var _a;
   const config = useRuntimeConfig();
   const nuxtApp = useNuxtApp();
   return nuxtApp.$img || nuxtApp._img || (nuxtApp._img = createImage({
     ...imageOptions,
-    event: (_a = nuxtApp.ssrContext) == null ? void 0 : _a.event,
+    event: nuxtApp.ssrContext?.event,
     nuxt: {
       baseURL: config.app.baseURL
     },
@@ -1060,7 +1054,7 @@ const _sfc_main$2 = /* @__PURE__ */ defineComponent({
     const activeIdx = ref(0);
     const testimonials = [
       {
-        text: "Making this the first true \u{1F60D} generator on the Internet. It uses a dictionary of over words, combined with a handful of model sentence structures, to generate \u{1F44F}\u{1F44F}",
+        text: "Making this the first true 😍 generator on the Internet. It uses a dictionary of over words, combined with a handful of model sentence structures, to generate 👏👏",
         author: "Dennis Lail",
         role: "Marketer",
         avatar: "https://staco-react.vercel.app/assets/img/finance/testimonial-user.png"
@@ -1086,8 +1080,7 @@ const _sfc_main$2 = /* @__PURE__ */ defineComponent({
       { name: "DAOMAK", logo: "/assets/brand6.svg" }
     ];
     return (_ctx, _push, _parent, _attrs) => {
-      var _a, _b, _c, _d;
-      _push(`<section${ssrRenderAttrs(mergeProps({ class: "flex flex-col items-center justify-center py-[100px] md:py-[140px] bg-[#F3F7F5] p-6 font-jakarta" }, _attrs))} data-v-b6ed569e><div class="w-full max-w-[1100px] bg-white rounded-[50px] shadow-[0_30px_80px_rgba(0,0,0,0.03)] border border-gray-100/50 overflow-hidden flex flex-col" data-v-b6ed569e><div class="grid grid-cols-1 md:grid-cols-2" data-v-b6ed569e><div class="relative bg-white min-h-[450px] lg:min-h-[520px] flex items-end justify-center overflow-hidden" data-v-b6ed569e><div class="absolute inset-0 z-0" data-v-b6ed569e><svg viewBox="0 0 500 500" class="w-full h-full" preserveAspectRatio="none" data-v-b6ed569e><path d="M0,80 C120,80 180,450 500,450 L500,500 L0,500 Z" fill="#004D3F" data-v-b6ed569e></path></svg></div><div class="relative z-10 w-[280px] h-[360px] lg:w-[320px] lg:h-[420px] bg-[#A2E996] rounded-t-full flex items-end overflow-hidden" data-v-b6ed569e><img${ssrRenderAttr("src", (_a = testimonials[activeIdx.value]) == null ? void 0 : _a.avatar)} class="w-full h-full object-cover object-top transform translate-y-2" alt="Client" data-v-b6ed569e></div></div><div class="p-10 md:p-16 lg:p-20 flex flex-col justify-center relative" data-v-b6ed569e><div class="mb-8" data-v-b6ed569e><div class="bg-[#3CD196] w-14 h-14 rounded-full rounded-br-none flex items-center justify-center shadow-lg" data-v-b6ed569e><span class="text-[#002D25] text-2xl font-black leading-none mt-1" data-v-b6ed569e>\u201C</span></div></div><div class="space-y-8" data-v-b6ed569e><p class="text-[#242549] text-[20px] lg:text-[24px] font-medium leading-[1.5] italic decoration-[#3CD196]/30" data-v-b6ed569e>${ssrInterpolate((_b = testimonials[activeIdx.value]) == null ? void 0 : _b.text)}</p><div class="flex items-center justify-between pt-4" data-v-b6ed569e><div data-v-b6ed569e><h4 class="text-2xl font-bold text-[#242549] tracking-tight" data-v-b6ed569e>${ssrInterpolate((_c = testimonials[activeIdx.value]) == null ? void 0 : _c.author)}</h4><p class="text-gray-400 font-medium text-base mt-1" data-v-b6ed569e>${ssrInterpolate((_d = testimonials[activeIdx.value]) == null ? void 0 : _d.role)}</p></div><div class="flex gap-2.5" data-v-b6ed569e><!--[-->`);
+      _push(`<section${ssrRenderAttrs(mergeProps({ class: "flex flex-col items-center justify-center py-[100px] md:py-[140px] bg-[#F3F7F5] p-6 font-jakarta" }, _attrs))} data-v-b6ed569e><div class="w-full max-w-[1100px] bg-white rounded-[50px] shadow-[0_30px_80px_rgba(0,0,0,0.03)] border border-gray-100/50 overflow-hidden flex flex-col" data-v-b6ed569e><div class="grid grid-cols-1 md:grid-cols-2" data-v-b6ed569e><div class="relative bg-white min-h-[450px] lg:min-h-[520px] flex items-end justify-center overflow-hidden" data-v-b6ed569e><div class="absolute inset-0 z-0" data-v-b6ed569e><svg viewBox="0 0 500 500" class="w-full h-full" preserveAspectRatio="none" data-v-b6ed569e><path d="M0,80 C120,80 180,450 500,450 L500,500 L0,500 Z" fill="#004D3F" data-v-b6ed569e></path></svg></div><div class="relative z-10 w-[280px] h-[360px] lg:w-[320px] lg:h-[420px] bg-[#A2E996] rounded-t-full flex items-end overflow-hidden" data-v-b6ed569e><img${ssrRenderAttr("src", testimonials[activeIdx.value]?.avatar)} class="w-full h-full object-cover object-top transform translate-y-2" alt="Client" data-v-b6ed569e></div></div><div class="p-10 md:p-16 lg:p-20 flex flex-col justify-center relative" data-v-b6ed569e><div class="mb-8" data-v-b6ed569e><div class="bg-[#3CD196] w-14 h-14 rounded-full rounded-br-none flex items-center justify-center shadow-lg" data-v-b6ed569e><span class="text-[#002D25] text-2xl font-black leading-none mt-1" data-v-b6ed569e>“</span></div></div><div class="space-y-8" data-v-b6ed569e><p class="text-[#242549] text-[20px] lg:text-[24px] font-medium leading-[1.5] italic decoration-[#3CD196]/30" data-v-b6ed569e>${ssrInterpolate(testimonials[activeIdx.value]?.text)}</p><div class="flex items-center justify-between pt-4" data-v-b6ed569e><div data-v-b6ed569e><h4 class="text-2xl font-bold text-[#242549] tracking-tight" data-v-b6ed569e>${ssrInterpolate(testimonials[activeIdx.value]?.author)}</h4><p class="text-gray-400 font-medium text-base mt-1" data-v-b6ed569e>${ssrInterpolate(testimonials[activeIdx.value]?.role)}</p></div><div class="flex gap-2.5" data-v-b6ed569e><!--[-->`);
       ssrRenderList(testimonials, (_, i) => {
         _push(`<button class="${ssrRenderClass([activeIdx.value === i ? "bg-[#3CD196] w-8" : "bg-gray-100 hover:bg-gray-200", "w-2 h-2 rounded-full transition-all duration-500 ease-in-out"])}" data-v-b6ed569e></button>`);
       });
@@ -1113,22 +1106,22 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
     const footerLinks = [
       {
         title: "Products",
-        icon: "\u{1F525}",
+        icon: "🔥",
         items: ["HR Management", "Invoice System", "Email Marketing", "Web Services", "Digital Marketing"]
       },
       {
         title: "Why choose",
-        icon: "\u2600\uFE0F",
+        icon: "☀️",
         items: ["Customers", "Why Staco ?", "Book a demo"]
       },
       {
         title: "Resources",
-        icon: "\u{1F4A0}",
+        icon: "💠",
         items: ["Latest Blog", "Supports", "Knowledgebase", "FAQs"]
       },
       {
         title: "Company",
-        icon: "\u{1F48E}",
+        icon: "💎",
         items: ["About", "What we do", "Contact us", "Careers"]
       }
     ];
@@ -1174,7 +1167,7 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
         });
         _push(`<!--]--></ul></div>`);
       });
-      _push(`<!--]--></div></div><div class="h-px w-full bg-white/5 mb-10" data-v-7e52ddf3></div><div class="flex flex-col md:flex-row justify-between items-center gap-6 text-[14px] text-gray-500" data-v-7e52ddf3><p data-v-7e52ddf3>\xA9 2023 Staco. All rights reserved.</p><div class="flex gap-8" data-v-7e52ddf3>`);
+      _push(`<!--]--></div></div><div class="h-px w-full bg-white/5 mb-10" data-v-7e52ddf3></div><div class="flex flex-col md:flex-row justify-between items-center gap-6 text-[14px] text-gray-500" data-v-7e52ddf3><p data-v-7e52ddf3>© 2023 Staco. All rights reserved.</p><div class="flex gap-8" data-v-7e52ddf3>`);
       _push(ssrRenderComponent(_component_NuxtLink, {
         to: "#",
         class: "hover:text-white transition-colors"

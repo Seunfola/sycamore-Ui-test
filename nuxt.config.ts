@@ -1,52 +1,33 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
 
-  modules: [
-    "@nuxt/ui",
-    "@nuxt/image",
-    "@vueuse/motion/nuxt",
-    "@nuxtjs/google-fonts",
-    "@nuxt/fonts",
-  ],
+  modules: ["@nuxt/ui", "@nuxt/image", "@vueuse/motion/nuxt", "@nuxt/fonts"],
 
   css: ["~/assets/css/main.css"],
 
-  googleFonts: {
-    families: {
-      "Plus Jakarta Sans": [400, 500, 600, 700, 800],
-      Allan: {
-        ital: [400, 700],
+  // Corrected Font handling: 'display' is removed as it's default
+  fonts: {
+    families: [
+      { name: "Plus Jakarta Sans", weights: [400, 500, 600, 700, 800] },
+      { name: "Allan", weights: [400, 700], styles: ["italic", "normal"] },
+      {
+        name: "Rethink Sans",
+        weights: [400, 800],
+        styles: ["italic", "normal"],
       },
-      "Rethink Sans": {
-        wght: [400, 800],
-        ital: [400, 800],
-      },
-      "DM Sans": [400, 500, 700],
-    },
-    display: "swap",
-    preload: true,
+      { name: "DM Sans", weights: [400, 500, 700] },
+    ],
   },
 
   colorMode: {
     preference: "dark",
   },
 
-  app: {
-    head: {
-      link: [
-        { rel: "preconnect", href: "https://fonts.googleapis.com" },
-        {
-          rel: "preconnect",
-          href: "https://fonts.gstatic.com",
-          crossorigin: "anonymous",
-        },
-      ],
-    },
-  },
-
   nitro: {
     preset: "vercel",
-
+    externals: {
+      inline: ["@iconify/utils"],
+    },
     vercel: {
       functions: {
         maxDuration: 30,
@@ -55,11 +36,15 @@ export default defineNuxtConfig({
     },
   },
 
+  icon: {
+    serverBundle: "remote",
+  },
+
   compatibilityDate: "2024-11-07",
 
   experimental: {
     componentIslands: true,
-    headNext: false,
+    headNext: true,
   },
 
   image: {
