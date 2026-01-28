@@ -27,7 +27,7 @@ useHead({
   ],
   link: [
     { rel: 'icon', type: 'image/svg+xml', href: '/assets/finance-logo.svg' },
-    { rel: 'apple-touch-icon', href: '/assets/finance-logo.svg' },
+    { rel: 'apple-touch-icon', sizes: '180x180', href: '/assets/apple-touch-icon.png' },
     { rel: 'canonical', href: 'https://staco.finance' }
   ],
   script: [

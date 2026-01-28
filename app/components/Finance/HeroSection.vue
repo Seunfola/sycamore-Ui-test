@@ -25,13 +25,16 @@
           class="flex-1 space-y-10"
         >
           <div class="space-y-6">
-            <h1 class="cd-headline banner-title text-6xl text-white lg:text-7xl font-bold font-jakarta leading-[1.2] mb-2 tracking-tight text-left max-w-[12ch]">
-              Financial Security Made
-              <span class="cd-words-wrapper block text-primary-6"> <Transition name="fade-up" mode="out-in">
-                  <b :key="words[currentIndex]">{{ words[currentIndex] }}</b>
-                </Transition>
-              </span>
-            </h1>
+            <div class="cd-intro m-0 loading-bar uig-animate-style">
+              <h1 class="cd-headline banner-title text-5xl text-white lg:text-7xl font-bold font-jakarta leading-[1.2] mb-2 tracking-tight text-left">
+                Financial Security Made
+                <span class="cd-words-wrapper relative inline-block text-primary-6 mt-[-11px] ml-[10px] min-w-[200px]">
+                  <Transition name="fade-up" mode="out-in">
+                    <b :key="words[currentIndex]">{{ words[currentIndex] }}</b>
+                  </Transition>
+                </span>
+              </h1>
+            </div>
             <p class="text-[18px] text-white max-w-xl leading-[36px] font-medium font-dm">
               Staco is the dedicated platform for human management that helps to grow your startup business quickly
             </p>

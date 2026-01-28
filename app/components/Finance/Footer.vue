@@ -111,7 +111,7 @@ const footerLinks = [
 
 const socialIcons = [
   { name: 'fab fa-facebook-f', link: '#' },
-  { name: 'fab fa-x', link: '#' }, // Updated to 'x' icon per screenshot
+  { name: 'fab fa-x', link: '#' },
   { name: 'fab fa-linkedin-in', link: '#' },
   { name: 'fab fa-instagram', link: '#' },
   { name: 'fab fa-youtube', link: '#' }
