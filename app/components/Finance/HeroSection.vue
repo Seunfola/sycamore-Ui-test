@@ -26,7 +26,6 @@ const toggleVideo = () => {
   }
 }
 
-// Vector Assets from Source Audit
 const line1 = "data:image/svg+xml,%3csvg%20width='299'%20height='353'%20viewBox='0%200%20299%20353'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M82.8994%20299.957C1.6656%20202.325%20-35.6931%20344.357%2074.3868%20347.838C184.467%20351.319%20385.434%20265.915%20246.722%200.984375'%20stroke='%23B2EDA1'%20stroke-width='10'%20stroke-miterlimit='10'/%3e%3c/svg%3e"
 const line2 = "data:image/svg+xml,%3csvg%20width='275'%20height='605'%20viewBox='0%200%20275%20605'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M1.71289%20599.989C1.71289%20599.989%20468.069%20436.813%20169.913%202.97119'%20stroke='%23B2EDA1'%20stroke-width='10'%20stroke-miterlimit='10'/%3e%3c/svg%3e"
 
