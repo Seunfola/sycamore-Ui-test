@@ -44,7 +44,7 @@ export default defineNuxtConfig({
 
   experimental: {
     componentIslands: true,
-    headNext: true,
+    headNext: false,
   },
 
   image: {
