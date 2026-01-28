@@ -1,3 +1,12 @@
+
+<template>
+  <NuxtLayout>
+    <div class="selection:bg-blue-500/30">
+      <NuxtPage />
+    </div>
+  </NuxtLayout>
+</template>
+
 <script setup lang="ts">
 useHead({
   title: 'Staco Finance - The Future of Modern Investing',
@@ -47,11 +56,3 @@ useHead({
   }
 })
 </script>
-
-<template>
-  <NuxtLayout>
-    <div class="selection:bg-blue-500/30">
-      <NuxtPage />
-    </div>
-  </NuxtLayout>
-</template>

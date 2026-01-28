@@ -1,48 +1,4 @@
-<script setup lang="ts">
-import { ref, onMounted, onUnmounted } from 'vue'
 
-const activeIdx = ref(0)
-let timer: any
-
-const testimonials = [
-  {
-    text: "Making this the first true 😍 generator on the Internet. It uses a dictionary of over words, combined with a handful of model sentence structures, to generate 👏👏",
-    author: "Dennis Lail",
-    role: "Marketer",
-    avatar: "https://staco-react.vercel.app/assets/img/finance/testimonial-user.png"
-  },
-  {
-    text: "I must explain to you how all this mistaken. Tdea of denouncing pleasure and praising pain was born and I will give you a complete account.",
-    author: "Roe Smith",
-    role: "Director, Growth Marketing",
-    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1974&auto=format&fit=crop"
-  },
-  {
-    text: "We use as filler text for layouts, non-readability is of great importance but because those who do not know how to pleasure rationally encounter consequences.",
-    author: "Aurthoe De",
-    role: "CEO - Dorid Co",
-    avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=2070&auto=format&fit=crop"
-  }
-]
-
-const partners = [
-  { name: 'jQuery', logo: '/assets/brand1.svg' },
-  { name: 'GitHub', logo: '/assets/brand2.svg' },
-  { name: 'Portis', logo: '/assets/brand4.svg' },
-  { name: 'envato', logo: '/assets/brand5.svg' },
-  { name: 'DAOMAK', logo: '/assets/brand6.svg' }
-]
-
-onMounted(() => {
-  timer = setInterval(() => {
-    activeIdx.value = (activeIdx.value + 1) % testimonials.length
-  }, 6000)
-})
-
-onUnmounted(() => {
-  clearInterval(timer)
-})
-</script>
 
 <template>
   <section class="flex flex-col items-center justify-center py-[100px] md:py-[140px] bg-[#F3F7F5] p-6 font-jakarta">
@@ -132,3 +88,49 @@ onUnmounted(() => {
 
 
 </style>
+
+<script setup lang="ts">
+import { ref, onMounted, onUnmounted } from 'vue'
+
+const activeIdx = ref(0)
+let timer: any
+
+const testimonials = [
+  {
+    text: "Making this the first true 😍 generator on the Internet. It uses a dictionary of over words, combined with a handful of model sentence structures, to generate 👏👏",
+    author: "Dennis Lail",
+    role: "Marketer",
+    avatar: "https://staco-react.vercel.app/assets/img/finance/testimonial-user.png"
+  },
+  {
+    text: "I must explain to you how all this mistaken. Tdea of denouncing pleasure and praising pain was born and I will give you a complete account.",
+    author: "Roe Smith",
+    role: "Director, Growth Marketing",
+    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1974&auto=format&fit=crop"
+  },
+  {
+    text: "We use as filler text for layouts, non-readability is of great importance but because those who do not know how to pleasure rationally encounter consequences.",
+    author: "Aurthoe De",
+    role: "CEO - Dorid Co",
+    avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=2070&auto=format&fit=crop"
+  }
+]
+
+const partners = [
+  { name: 'jQuery', logo: '/assets/brand1.svg' },
+  { name: 'GitHub', logo: '/assets/brand2.svg' },
+  { name: 'Portis', logo: '/assets/brand4.svg' },
+  { name: 'envato', logo: '/assets/brand5.svg' },
+  { name: 'DAOMAK', logo: '/assets/brand6.svg' }
+]
+
+onMounted(() => {
+  timer = setInterval(() => {
+    activeIdx.value = (activeIdx.value + 1) % testimonials.length
+  }, 6000)
+})
+
+onUnmounted(() => {
+  clearInterval(timer)
+})
+</script>

@@ -1,27 +1,3 @@
-<script setup lang="ts">
-import { ref, onMounted, onUnmounted } from 'vue'
-
-const dynamicWords = ['productivity', 'efficiency', 'growth']
-const currentIndex = ref(0)
-let interval: any
-
-const benefits = [
-  "99% Survey Report",
-  "Trusted by teams",
-  "Self-Service"
-]
-
-onMounted(() => {
-  interval = setInterval(() => {
-    currentIndex.value = (currentIndex.value + 1) % dynamicWords.length
-  }, 3000)
-})
-
-onUnmounted(() => {
-  clearInterval(interval)
-})
-</script>
-
 <template>
   <section class="py-[100px] md:py-[140px] bg-white overflow-hidden">
     <div class="container mx-auto px-4 max-w-[1240px]">
@@ -149,3 +125,27 @@ onUnmounted(() => {
   transform: translateY(-20px);
 }
 </style>
+
+<script setup lang="ts">
+import { ref, onMounted, onUnmounted } from 'vue'
+
+const dynamicWords = ['productivity', 'efficiency', 'growth']
+const currentIndex = ref(0)
+let interval: any
+
+const benefits = [
+  "99% Survey Report",
+  "Trusted by teams",
+  "Self-Service"
+]
+
+onMounted(() => {
+  interval = setInterval(() => {
+    currentIndex.value = (currentIndex.value + 1) % dynamicWords.length
+  }, 3000)
+})
+
+onUnmounted(() => {
+  clearInterval(interval)
+})
+</script>

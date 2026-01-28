@@ -1,4 +1,3 @@
-// https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   compatibilityDate: "2024-04-03",
   devtools: { enabled: true },
@@ -50,7 +49,7 @@ export default defineNuxtConfig({
     prerender: {
       crawlLinks: true,
       routes: ["/"],
-      ignore: ["/admin"],
+      ignore: ["/a"],
     },
     rollupConfig: {
       external: ["@iconify/utils", "@vue/shared"],
