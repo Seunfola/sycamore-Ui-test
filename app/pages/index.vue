@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { useWindowScroll } from '@vueuse/core'
-import { computed } from 'vue'
+import { computed, ref } from 'vue'
 
-const { y } = useWindowScroll()
+const y = process.client ? useWindowScroll().y : ref(0)
 const isSticky = computed(() => y.value > 30)
 
 useHead({
